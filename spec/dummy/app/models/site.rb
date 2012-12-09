@@ -5,8 +5,9 @@ class Site < ActiveRecord::Base
                  :dependent => :destroy
 
   # attributes
-  attr_accessible :name
-  accepts_nested_attributes_for :logo
+  attr_accessible :logo_attributes,
+                  :name
+  accepts_nested_attributes_for :logo, :allow_destroy => true
 
   # validations
   validates :name, :presence => true
